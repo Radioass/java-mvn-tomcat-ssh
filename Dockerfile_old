@@ -1,0 +1,55 @@
+FROM java:8
+MAINTAINER TenxCloud <dev@tenxcloud.com>
+
+RUN apt-get update && \
+    apt-get install -yq --no-install-recommends wget pwgen ca-certificates && \
+    apt-get install -y supervisor && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+
+# Add Maven tool
+ENV PATH $PATH:/opt/apache-maven-3.3.3/bin
+ADD apache-maven-3.3.3 /opt/apache-maven-3.3.3
+
+
+# Add Tomcat 8
+ENV CATALINA_HOME /tomcat
+ENV PATH $CATALINA_HOME/bin:$PATH
+RUN mkdir -p "$CATALINA_HOME"
+WORKDIR $CATALINA_HOME
+ENV TOMCAT_VERSION 8.0.37
+ENV TOMCAT_PASS ''
+
+ADD tomcat8/ $CATALINA_HOME
+RUN rm bin/*.bat
+
+
+# Install ssh
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install openssh-server pwgen
+RUN mkdir -p /var/run/sshd && sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config && sed -i "s/PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config
+
+ADD set_root_pw.sh /set_root_pw.sh
+
+RUN chmod 755 /*.sh
+
+ENV TOMCAT_USER admin
+# ENV TOMCAT_PASS **Random**
+
+ENV ROOT_PASS ''
+
+ENV AUTHORIZED_KEYS **None**
+
+ADD create_tomcat_admin_user.sh /create_tomcat_admin_user.sh
+ADD run.sh /run.sh
+# ADD webapps.tar /opt/data
+# RUN rm -rf /tomcat/webapps/*
+RUN chmod +x /*.sh
+
+# Add volumes for App
+VOLUME  ["/tomcat/webapps"]
+
+# expose ports
+EXPOSE 8080 22
+
+CMD ["/run.sh"]
