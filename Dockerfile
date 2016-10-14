@@ -9,9 +9,12 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Add maven dependencies
+ADD mvn-dependencies /root/.m2/
+
 # Add Maven tool
-ENV PATH $PATH:/opt/apache-maven-3.3.3/bin
-ADD apache-maven-3.3.3 /opt/apache-maven-3.3.3
+ENV PATH $PATH:/opt/apache-maven-3.3.9/bin
+ADD apache-maven-3.3.9 /opt/apache-maven-3.3.9
 
 
 # Add Tomcat 8

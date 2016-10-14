@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+  http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>    
+        <groupId>org.onecmdb</groupId>
+    <artifactId>onecmdb-publish</artifactId>
+    <version>2.1.0</version>
+
+    <!-- repo -->
+	<repositories>
+		<repository>
+		    <id>central</id>
+		    <name>maven2</name>
+		    <url>http://repo1.maven.org/maven2/</url>
+		</repository>
+	</repositories>
+	
+	<!-- set properties which could be used later -->
+	<properties>
+	   <spring.version>3.0.5.RELEASE</spring.version>
+	   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+    <dependencies>
+       
+       <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-core</artifactId>
+          <version>${spring.version}</version>
+          <exclusions>
+             <exclusion>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+             </exclusion>
+          </exclusions>
+        </dependency>
+        
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-beans</artifactId>
+          <version>${spring.version}</version>
+        </dependency>
+        
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-expression</artifactId>
+          <version>${spring.version}</version>
+        </dependency>
+        
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context</artifactId>
+          <version>${spring.version}</version>
+        </dependency>
+        
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context-support</artifactId>
+          <version>${spring.version}</version>
+        </dependency>
+        
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-tx</artifactId>
+          <version>${spring.version}</version>
+        </dependency>
+        
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-jdbc</artifactId>
+          <version>${spring.version}</version>
+        </dependency>
+        
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-web</artifactId>
+          <version>${spring.version}</version>
+        </dependency>
+        
+        <dependency>
+          <groupId>commons-collections</groupId>
+          <artifactId>commons-collections</artifactId>
+          <version>3.2.1</version>
+        </dependency>
+        
+        <dependency>
+           <groupId>commons-logging</groupId>
+           <artifactId>commons-logging</artifactId>
+           <version>1.1.1</version>
+        </dependency>
+        
+        <dependency>
+           <groupId>commons-pool</groupId>
+           <artifactId>commons-pool</artifactId>
+           <version>1.0</version>
+        </dependency>
+        
+        <dependency>
+           <groupId>commons-dbcp</groupId>
+           <artifactId>commons-dbcp</artifactId>
+           <version>1.0</version>
+           <exclusions>
+              <exclusion>
+                 <groupId>commons-collections</groupId>
+                 <artifactId>commons-collections</artifactId>
+              </exclusion>
+              <exclusion>
+                 <groupId>commons-lang</groupId>
+                 <artifactId>commons-lang</artifactId>
+              </exclusion>
+              <exclusion>
+                 <groupId>xml-apis</groupId>
+                 <artifactId>xml-apis</artifactId>
+              </exclusion>
+              <exclusion>
+                 <groupId>junit</groupId>
+                 <artifactId>junit</artifactId>
+              </exclusion>
+              <exclusion>
+                 <groupId>javax.sql</groupId>
+                 <artifactId>jdbc-stdext</artifactId>
+              </exclusion>
+           </exclusions>
+        </dependency>
+        
+        <dependency>
+    		<groupId>ojdbc</groupId>
+    		<artifactId>ojdbc</artifactId>
+    		<version>6</version>
+		</dependency>
+        
+        <dependency>
+           <groupId>dom4j</groupId>
+           <artifactId>dom4j</artifactId>
+           <version>1.6.1</version>
+        </dependency>
+        
+        <dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>2.3.1.2</version>
+			<exclusions>
+			   <exclusion>
+			       <groupId>org.apache.struts.xwork</groupId>
+			       <artifactId>xwork-core</artifactId>
+			   </exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+		   <groupId>org.apache.struts.xwork</groupId>
+		   <artifactId>xwork-core</artifactId>
+		   <version>2.2.1</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>net.sf.json-lib</groupId>
+		    <artifactId>json-lib</artifactId>
+		    <version>2.4</version>
+		    <classifier>jdk15</classifier>
+		    <exclusions>
+		       <exclusion>
+		          <groupId>commons-beanutils</groupId>
+		          <artifactId>commons-beanutils</artifactId>
+		       </exclusion>
+		       <exclusion>
+		          <groupId>commons-logging</groupId>
+		          <artifactId>commons-logging</artifactId>
+		       </exclusion>
+		       <exclusion>
+		          <groupId>commons-collections</groupId>
+		          <artifactId>commons-collections</artifactId>
+		       </exclusion>
+		    </exclusions>
+		</dependency>
+		
+		<dependency>
+		   <groupId>org.apache.struts</groupId>
+		   <artifactId>struts2-json-plugin</artifactId>
+		   <version>2.2.1.1</version>
+		</dependency>
+		
+		<dependency>
+		   <groupId>org.apache.struts</groupId>
+		   <artifactId>struts2-spring-plugin</artifactId>
+		   <version>2.3.4</version>
+		</dependency>
+		
+		<dependency>
+		   <groupId>javax.servlet</groupId>
+		   <artifactId>servlet-api</artifactId>
+		   <version>2.3</version>
+		   <scope>provided</scope>
+		</dependency>
+
+    </dependencies>
+    
+    
+    <!-- build definitions -->
+    <build>
+       <!--defaultGoal>dependency:sources</defaultGoal>
+       <directory>${project.basedir}/target</directory>
+       <outputDirectory>${project.build.directory}/WebRoot/WEB-INF/classes</outputDirectory>
+       <finalName>${project.artifactId}-${project.version}</finalName>
+       <testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
+       <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+       <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
+       <resources>
+           <resource>
+             <targetPath>resource</targetPath>
+             <filtering>false</filtering>
+             <directory>${project.basedir}/src/main/resource</directory>
+             <excludes>
+                <exclude>*.png</exclude>
+             </excludes>
+           </resource>
+       </resources>
+       <testResources>
+           <testResource>
+              <directory>${project.basedir}/src/test/test-resource</directory>
+           </testResource>
+       </testResources-->
+       <plugins>
+		    <plugin>
+	    		<groupId>org.apache.maven.plugins</groupId>
+	    		<artifactId>maven-compiler-plugin</artifactId>
+	    		<version>2.3.2</version>
+	    		<configuration>
+	          		<source>1.6</source>
+	          		<target>1.6</target>
+	        	</configuration>
+    		</plugin>
+    		<plugin>
+    		   <groupId>org.apache.tomcat.maven</groupId>
+    		   <artifactId>tomcat7-maven-plugin</artifactId>
+    		   <version>2.0-beta-1</version>
+    		   <!--configuration>
+    		      <url>http://localhost:9090/manager/html</url>
+    		      <path>/${project.artifactId}-${project.version}</path>
+    		   </configuration-->
+    		</plugin>
+    	</plugins>
+    </build>
+    
+</project>
